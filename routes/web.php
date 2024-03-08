@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\BranchController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\PaymentMethodController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -25,14 +29,33 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('app')->group(function () {
+    Route::middleware(['auth', 'verified'])->get('/', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::middleware('auth')->group(function () {
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    });
+
+    Route::resource('branches', BranchController::class)
+        ->middleware('auth')
+        ->only(['index', 'create', 'edit', 'show', 'store', 'update', 'destroy']);
+
+    Route::resource('customers', CustomerController::class)
+        ->middleware('auth')
+        ->only(['index', 'edit', 'store', 'update', 'destroy']);
+
+    Route::resource('payments', PaymentMethodController::class)
+        ->middleware('auth')
+        ->only(['index', 'edit', 'store', 'update', 'destroy']);
+
+    Route::resource('products', ProductController::class)
+        ->middleware(['auth'])
+        ->only(['index', 'show', 'edit', 'store', 'update', 'destroy']);
 });
+
 
 require __DIR__.'/auth.php';
