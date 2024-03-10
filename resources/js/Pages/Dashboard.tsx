@@ -20,7 +20,7 @@ export default function Dashboard({ auth }: PageProps) {
                         <br />
                         <Input type='text' placeholder='Enter username' />
                         <br />
-                        <Button variant={'destructive'}>mauzodata</Button>
+                        <Button className='bg-indigo-950 text-indigo-50'>mauzodata</Button>
                     </CardContent>
                 </Card>
             </div>

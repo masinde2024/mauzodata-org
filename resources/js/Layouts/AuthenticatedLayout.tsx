@@ -1,8 +1,8 @@
 import { useState, PropsWithChildren, ReactNode } from "react";
-import ApplicationLogo from "@/Components/ApplicationLogo";
-import Dropdown from "@/Components/Dropdown";
-import NavLink from "@/Components/NavLink";
-import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
+import ApplicationLogo from "@/components/ApplicationLogo";
+import Dropdown from "@/components/ui/Dropdown";
+import NavLink from "@/components/ui/NavLink";
+import ResponsiveNavLink from "@/components/ui/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 import { User } from "@/types";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -22,10 +22,10 @@ export default function Authenticated({
     return (
         <>
             <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-                <div className="min-h-screen bg-gray-100 dark:bg-gray-950">
-                    <nav className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+                <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-violet-100 to-indigo-100">
+                    <nav className="bg-indigo-100 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div className="flex justify-between h-16">
+                            <div className="flex justify-between h-12">
                                 <div className="flex">
                                     <div className="shrink-0 flex items-center">
                                         <Link href="/">
@@ -42,7 +42,7 @@ export default function Authenticated({
                                         >
                                             Dashboard
                                         </NavLink>
-                                        <ModeToggle />
+                                        {/* <ModeToggle /> */}
                                     </div>
                                 </div>
 
@@ -192,12 +192,12 @@ export default function Authenticated({
                                     </div>
                                 </header>
                             )}
-                            <div className="p-4">{children}</div>
+                            <div className="py-6">{children}</div>
                         </div>
                     </main>
                 </div>
             </ThemeProvider>
-            <Toaster richColors duration={5000} position={'top-center'} />
+            <Toaster richColors duration={5000} position={"top-center"} />
         </>
     );
 }

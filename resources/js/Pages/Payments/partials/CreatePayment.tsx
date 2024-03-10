@@ -1,5 +1,5 @@
-import InputError from "@/Components/InputError";
-import InputLabel from "@/Components/InputLabel";
+import InputError from "@/components/ui/InputError";
+import InputLabel from "@/components/ui/InputLabel";
 import SubmitButton from "@/components/SubmitButton";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,11 +20,11 @@ import { toast } from "sonner";
 
 export function CreatePayment() {
     const [open, setOpen] = React.useState(false);
-    const { data, setData, post, processing, errors, reset} = useForm({
+    const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
         number: "",
         isActive: true,
-    })
+    });
 
     const submit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -36,7 +36,7 @@ export function CreatePayment() {
             },
             onError: () => toast.error("An error occurred. Please try again."),
         });
-    }
+    };
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>

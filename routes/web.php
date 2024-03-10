@@ -42,7 +42,7 @@ Route::prefix('app')->group(function () {
 
     Route::resource('branches', BranchController::class)
         ->middleware('auth')
-        ->only(['index', 'create', 'edit', 'show', 'store', 'update', 'destroy']);
+        ->only(['index', 'create', 'show', 'edit', 'store', 'update', 'destroy']);
 
     Route::resource('customers', CustomerController::class)
         ->middleware('auth')
@@ -53,8 +53,8 @@ Route::prefix('app')->group(function () {
         ->only(['index', 'edit', 'store', 'update', 'destroy']);
 
     Route::resource('products', ProductController::class)
-        ->middleware(['auth'])
-        ->only(['index', 'show', 'edit', 'store', 'update', 'destroy']);
+        ->middleware(['auth', 'remove_comma_from_input'])
+        ->only(['index', 'create', 'edit', 'store', 'update', 'destroy']);
 });
 
 

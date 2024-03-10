@@ -1,3 +1,10 @@
+export type PaginationLink = 
+    {
+        url: string;
+        label: string;
+        active: boolean;
+    }
+
 export interface Branch {
     id?: number;
     account_id?: number;
@@ -12,11 +19,10 @@ export interface Branch {
     updated_at?: string;
 }
 
-
 export interface account {
     id?: number;
     name: string;
-    plan: 'free' | 'basic' | 'premium';
+    plan: "free" | "basic" | "premium";
     created_at?: string;
     updated_at?: string;
 }
@@ -29,8 +35,7 @@ export type Customer = {
     address?: string;
     created_at?: string;
     updated_at?: string;
-}
-
+};
 
 export type PaymentMethod = {
     id?: number;
@@ -39,7 +44,7 @@ export type PaymentMethod = {
     number: string;
     created_at?: string;
     updated_at?: string;
-}
+};
 
 export type Product = {
     id?: number;
@@ -56,4 +61,20 @@ export type Product = {
     expire_date?: string;
     created_at?: string;
     updated_at?: string;
-}
+};
+
+export type PaginatedProduct = {
+    data: Product[];
+    links: PaginationLink[];
+    current_page: number;
+    last_page: number;
+    first_page_url: string;
+    last_page_url: string;
+    prev_page_url: string;
+    next_page_url: string;
+    from: number;
+    path: string;
+    per_page: number;
+    to: number;
+    total: number;
+};

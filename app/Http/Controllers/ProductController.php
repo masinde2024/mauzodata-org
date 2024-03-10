@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index(): Response
     {
         return Inertia::render('Products/Index', [
-            'products' => Product::all()
+            'products' => Product::paginate(10),
         ]);
     }
 
@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Products/Create');
     }
 
     /**
@@ -33,7 +33,8 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        Product::create($request->validated());
+        return to_route('products.create');
     }
 
     /**

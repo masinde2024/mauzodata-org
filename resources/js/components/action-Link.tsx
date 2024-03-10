@@ -6,10 +6,10 @@ import { parseArgs } from 'util';
 
 const ActionLink = ({ url, params}: { url: string, params?: RouteParams<string>}) => {
   return (
-      <Link href={route(url, params || undefined)} className="text-gray-400 hover:text-teal-600">
+      <Link href={route(url, params || undefined)} className="text-gray-400 hover:text-indigo-600">
           <ArrowRightCircle
               size={22}
-              className="hover:stroke-white hover:fill-teal-600 transition-colors duration-200"
+              className="hover:stroke-white hover:fill-indigo-600 transition-colors duration-200"
           />
       </Link>
   );

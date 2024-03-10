@@ -9,7 +9,7 @@ const Table = React.forwardRef<
   <div className="relative w-full whitespace-nowrap overflow-auto">
     <table
       ref={ref}
-      className={cn("w-full border border-collapse border-gray-300 dark:border-gray-700 caption-bottom text-sm", className)}
+      className={cn("w-full  caption-bottom text-sm", className)}
       {...props}
     />
   </div>
@@ -20,7 +20,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn("[&_tr]:border dark:border-gray-700 bg-gray-100 dark:bg-gray-950", className)} {...props} />
+  <thead ref={ref} className={cn("[&_tr]:border-b uppercase dark:border-gray-700 bg-indigo-100 dark:bg-gray-950", className)} {...props} />
 ))
 TableHeader.displayName = "TableHeader"
 
@@ -58,7 +58,7 @@ const TableRow = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
-      "border transition-colors hover:bg-gray-100/50 data-[state=selected]:bg-gray-100 dark:hover:bg-gray-800/50 dark:data-[state=selected]:bg-gray-800",
+      "border-b border-gray-200 dark:border-gray-700 transition-colors hover:bg-gray-100 data-[state=selected]:bg-gray-100 dark:hover:bg-gray-800/50 dark:data-[state=selected]:bg-gray-800",
       className
     )}
     {...props}
@@ -73,7 +73,7 @@ const TableHead = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      "h-9 px-4 border border-gray-300 dark:border-gray-700 text-left align-middle font-medium text-gray-500 [&:has([role=checkbox])]:pr-0 dark:text-gray-400",
+      "h-9 px-4 text-left align-middle font-medium text-indigo-950 [&:has([role=checkbox])]:pr-0 dark:text-gray-400",
       className
     )}
     {...props}
@@ -87,7 +87,7 @@ const TableCell = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <td
     ref={ref}
-    className={cn("px-4 py-2 border border-gray-300 dark:border-gray-700 align-middle [&:has([role=checkbox])]:pr-0", className)}
+    className={cn("px-4 py-2 align-middle [&:has([role=checkbox])]:pr-0", className)}
     {...props}
   />
 ))

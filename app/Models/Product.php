@@ -19,6 +19,12 @@ class Product extends Model
     protected $fillable = ['branch_id', 'name', 'unit', 'barcode', 'buying_price', 'selling_price', 'stock', 'quantity_per_stock', 'whole_sale', 'discount', 'stock_alert', 'expire_date', 'transport', 'status'];
 
     protected $casts = [
+        'buying_price' => 'integer',
+        'selling_price' => 'integer',
+        'stock' => 'decimal:2',
+        'quantity_per_stock' => 'decimal:2',
+        'whole_sale' => 'decimal:2',
+        'discount' => 'integer',
         'isActive' => 'boolean'
     ];
 

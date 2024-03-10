@@ -1,5 +1,5 @@
-import InputError from "@/Components/InputError";
-import InputLabel from "@/Components/InputLabel";
+import InputError from "@/components/ui/InputError";
+import InputLabel from "@/components/ui/InputLabel";
 import Authenticated from "@/Layouts/AuthenticatedLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,17 +10,17 @@ import React from "react";
 
 function CreateBranch({ auth }: PageProps) {
     const { data, setData, processing, post, errors } = useForm({
-        name: '',
-        phone: '',
-        email: '',
-        city: '',
-        state: '',
-        postal_code: '',
+        name: "",
+        phone: "",
+        email: "",
+        city: "",
+        state: "",
+        postal_code: "",
     });
 
     const submit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        post(route('branches.store'));
+        post(route("branches.store"));
     };
 
     return (
@@ -43,10 +43,15 @@ function CreateBranch({ auth }: PageProps) {
                                     type="text"
                                     value={data.name}
                                     autoFocus
-                                    onChange={(e) => setData('name', e.target.value)}
+                                    onChange={(e) =>
+                                        setData("name", e.target.value)
+                                    }
                                     className="mt-1 block w-full"
                                 />
-                                <InputError message={errors.name} className="mt-2" />
+                                <InputError
+                                    message={errors.name}
+                                    className="mt-2"
+                                />
                             </div>
                             <div className="col-span-6 sm:col-span-3">
                                 <InputLabel htmlFor="phone" value="Phone" />
@@ -54,10 +59,15 @@ function CreateBranch({ auth }: PageProps) {
                                     id="phone"
                                     type="text"
                                     value={data.phone}
-                                    onChange={(e) => setData('phone', e.target.value)}
+                                    onChange={(e) =>
+                                        setData("phone", e.target.value)
+                                    }
                                     className="mt-1 block w-full"
                                 />
-                                <InputError message={errors.phone} className="mt-2" />
+                                <InputError
+                                    message={errors.phone}
+                                    className="mt-2"
+                                />
                             </div>
                             <div className="col-span-6 sm:col-span-3">
                                 <InputLabel htmlFor="email" value="Email" />
@@ -65,10 +75,15 @@ function CreateBranch({ auth }: PageProps) {
                                     id="email"
                                     type="email"
                                     value={data.email}
-                                    onChange={(e) => setData('email', e.target.value)}
+                                    onChange={(e) =>
+                                        setData("email", e.target.value)
+                                    }
                                     className="mt-1 block w-full"
                                 />
-                                <InputError message={errors.email} className="mt-2" />
+                                <InputError
+                                    message={errors.email}
+                                    className="mt-2"
+                                />
                             </div>
                             <div className="col-span-6 sm:col-span-3">
                                 <InputLabel htmlFor="city" value="City" />
@@ -76,10 +91,15 @@ function CreateBranch({ auth }: PageProps) {
                                     id="city"
                                     type="text"
                                     value={data.city}
-                                    onChange={(e) => setData('city', e.target.value)}
+                                    onChange={(e) =>
+                                        setData("city", e.target.value)
+                                    }
                                     className="mt-1 block w-full"
                                 />
-                                <InputError message={errors.city} className="mt-2" />
+                                <InputError
+                                    message={errors.city}
+                                    className="mt-2"
+                                />
                             </div>
                             <div className="col-span-6 sm:col-span-3">
                                 <InputLabel htmlFor="state" value="State" />
@@ -87,30 +107,43 @@ function CreateBranch({ auth }: PageProps) {
                                     id="state"
                                     type="text"
                                     value={data.state}
-                                    onChange={(e) => setData('state', e.target.value)}
+                                    onChange={(e) =>
+                                        setData("state", e.target.value)
+                                    }
                                     className="mt-1 block w-full"
                                 />
-                                <InputError message={errors.state} className="mt-2" />
+                                <InputError
+                                    message={errors.state}
+                                    className="mt-2"
+                                />
                             </div>
                             <div className="col-span-6 sm:col-span-3">
-                                <InputLabel htmlFor="postal_code" value="Postal Code" />
+                                <InputLabel
+                                    htmlFor="postal_code"
+                                    value="Postal Code"
+                                />
                                 <Input
                                     id="postal_code"
                                     type="text"
                                     value={data.postal_code}
-                                    onChange={(e) => setData('postal_code', e.target.value)}
+                                    onChange={(e) =>
+                                        setData("postal_code", e.target.value)
+                                    }
                                     className="mt-1 block w-full"
                                 />
-                                <InputError message={errors.postal_code} className="mt-2" />
+                                <InputError
+                                    message={errors.postal_code}
+                                    className="mt-2"
+                                />
                             </div>
                         </div>
                         <div className="flex justify-end items-center gap-4 mt-4">
-                            <Button variant={'outline'}>
-                                <Link href={route('branches.index')}>Cancel</Link>
+                            <Button variant={"outline"}>
+                                <Link href={route("branches.index")}>
+                                    Cancel
+                                </Link>
                             </Button>
-                            <Button type="submit">
-                                Create
-                            </Button>
+                            <Button type="submit">Create</Button>
                         </div>
                     </form>
                 </CardContent>
