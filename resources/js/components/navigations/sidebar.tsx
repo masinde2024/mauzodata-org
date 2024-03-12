@@ -1,9 +1,28 @@
 import SideLink from "../side-link";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
+
 
 const Sidebar = () => {
     return (
         <nav className="p-3 dark:text-gray-200">
-            <ul className="space-y-1">
+            <Select>
+                <SelectTrigger className="">
+                    <SelectValue placeholder="branches" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="light">Mwnananyamara Shop</SelectItem>
+                    <SelectItem value="dark">Buguruni Store</SelectItem>
+                    <SelectItem value="system">Miami Kilimanjaro Shop</SelectItem>
+                </SelectContent>
+            </Select>
+
+            <ul className="space-y-2">
                 <li>
                     <SideLink url="dashboard" label="Dashboard" />
                 </li>

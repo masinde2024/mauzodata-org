@@ -15,6 +15,7 @@ import { PageProps } from "@/types";
 import { Head } from "@inertiajs/react";
 import React from "react";
 import { CreatePayment } from "./partials/CreatePayment";
+import EmptyTablePlaceholder from "@/components/EmptyTablePlaceholder";
 
 const PaymentIndex = ({
     auth,
@@ -32,6 +33,7 @@ const PaymentIndex = ({
                     </div>
                 </CardHeader>
 
+                { payments.length > 0 ? (
                 <Table>
                     <TableHeader>
                         <TableRow>
@@ -57,6 +59,9 @@ const PaymentIndex = ({
                         ))}
                     </TableBody>
                 </Table>
+                ): (
+                    <EmptyTablePlaceholder />
+                )}
             </Card>
         </Authenticated>
     );

@@ -1,5 +1,5 @@
 import Authenticated from "@/Layouts/AuthenticatedLayout";
-import TablePagination from "@/components/TablePagination";
+import EmptyTablePlaceholder from "@/components/EmptyTablePlaceholder";
 import ActionLink from "@/components/action-Link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,22 +12,29 @@ import {
     TableRow,
     TableCell,
 } from "@/components/ui/table";
-import { PaginatedProduct, Product } from "@/lib/schemas";
+import { PaginatedProduct } from "@/lib/schemas";
 import { PageProps } from "@/types";
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, router } from "@inertiajs/react";
 import { FilterIcon, PrinterIcon } from "lucide-react";
+import { useDebouncedCallback } from "use-debounce";
 
 const ProductIndex = ({
     auth,
     products,
 }: PageProps<{ products: PaginatedProduct }>) => {
-    console.log(products)
+    const handleSearch = useDebouncedCallback((term: string) => {
+        router.get(
+            route("products.index"),
+            { search: term },
+            { preserveScroll: true, preserveState: true }
+        );
+    }, 1000);
     return (
         <Authenticated user={auth.user}>
             <Head title="Products" />
 
             <div className="flex justify-between items-center mb-3 px-4">
-                <CardTitle>Products</CardTitle>
+                <CardTitle className="dark:text-kado-50">Products</CardTitle>
                 <Link href={route("products.create")}>
                     <Button>Create</Button>
                 </Link>
@@ -43,6 +50,7 @@ const ProductIndex = ({
                                 type="search"
                                 placeholder="Search..."
                                 className="w-full rounded-2xl max-w-sm md:min-w-sm"
+                                onChange={(e) => handleSearch(e.target.value)}
                             />
                             <Button variant={"outline"} size={"icon"}>
                                 <FilterIcon className="size-4" />
@@ -51,6 +59,7 @@ const ProductIndex = ({
                     </div>
                 </CardHeader>
 
+                { products.data.length > 0 ? (
                 <Table>
                     <TableHeader>
                         <TableRow>
@@ -109,10 +118,9 @@ const ProductIndex = ({
                         ))}
                     </TableBody>
                 </Table>
-
-                <div>
-                    <TablePagination links={products.links} prev_url={products.prev_page_url} next_url={products.next_page_url} />
-                </div>
+                ): (
+                    <EmptyTablePlaceholder />
+                )}
             </Card>
         </Authenticated>
     );

@@ -23,4 +23,9 @@ class Customer extends Model
         return $this->belongsTo(Branch::class);
     }
 
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('name', 'like', '%' . $search . '%')
+            ->orWhere('contact', 'like', '%' . $search . '%');
+    }
 }

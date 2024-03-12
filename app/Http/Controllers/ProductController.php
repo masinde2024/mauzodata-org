@@ -15,6 +15,11 @@ class ProductController extends Controller
      */
     public function index(): Response
     {
+        if(request()->get('search') !== null) {
+            return Inertia::render('Products/Index', [
+                'products' => Product::search(request()->get('search'))->paginate(10),
+            ]);
+        }
         return Inertia::render('Products/Index', [
             'products' => Product::paginate(10),
         ]);

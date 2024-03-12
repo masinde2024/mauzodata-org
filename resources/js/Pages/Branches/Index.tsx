@@ -1,4 +1,5 @@
 import Authenticated from "@/Layouts/AuthenticatedLayout";
+import EmptyTablePlaceholder from "@/components/EmptyTablePlaceholder";
 import ActionLink from "@/components/action-Link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,6 +24,7 @@ const BranchIndex = ({ auth, branches }: PageProps<{ branches: Branch[] }>) => {
                     </div>
                 </CardHeader>
 
+                { branches.length > 0 ? (
                 <Table>
                     <TableHeader>
                         <TableRow>
@@ -48,6 +50,9 @@ const BranchIndex = ({ auth, branches }: PageProps<{ branches: Branch[] }>) => {
                         ))}
                     </TableBody>
                 </Table>
+                ): (
+                    <EmptyTablePlaceholder />
+                )}
             </Card>
         </Authenticated>
     );

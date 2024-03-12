@@ -28,6 +28,17 @@ class Product extends Model
         'isActive' => 'boolean'
     ];
 
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
+
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('name', 'like', '%' . $search . '%')
+            ->orWhere('barcode', 'like', '%' . $search . '%');
+    }
+
     public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class);
