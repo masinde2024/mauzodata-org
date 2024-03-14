@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -55,7 +57,17 @@ Route::prefix('app')->group(function () {
     Route::resource('products', ProductController::class)
         ->middleware(['auth', 'remove_comma_from_input'])
         ->only(['index', 'create', 'edit', 'store', 'update', 'destroy']);
-});
 
+    Route::group(['middleware' => ['auth', 'remove_comma_from_input']], function () {
+        Route::get('/cart', [CartController::class, 'index'])->name('carts.index');
+        Route::patch('/items/{item}', [CartController::class, 'update'])->name('carts.update');
+        Route::post('/cart', [CartController::class, 'store'])->name('carts.store');
+        Route::delete('/items/{item}', [CartController::class, 'destroy'])->name('carts.destroy');
+    });
+
+    Route::group(['middleware' => ['auth', 'remove_comma_from_input']], function () {
+        Route::get('/sales', [OrderController::class, 'index'])->name('sales.index');
+    });
+});
 
 require __DIR__.'/auth.php';

@@ -8,7 +8,8 @@ class BranchObserver
 {
     public function creating(Branch $branch): void
     {
-        if(auth()->check())
+        if (auth()->check()) {
             $branch->account_id = auth()->user()->account_id;
+        }
     }
 }

@@ -34,7 +34,7 @@ class UpdateProductRequest extends FormRequest
             'stock_alert' => 'required|numeric|max_digits:10',
             'expire_date' => 'nullable|string|max:255',
             'transport' => 'nullable|numeric|max_digits:10',
-            'status' => 'required|boolean'
+            'status' => 'required|boolean',
         ];
     }
 }

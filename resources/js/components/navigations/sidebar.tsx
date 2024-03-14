@@ -38,6 +38,9 @@ const Sidebar = () => {
                 <li>
                     <SideLink url="products.index" label="Products" />
                 </li>
+                <li>
+                    <SideLink url="carts.index" label="Cart" />
+                </li>
             </ul>
         </nav>
     );

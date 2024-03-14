@@ -1,6 +1,6 @@
 import { Link } from "@inertiajs/react";
 import clsx from "clsx";
-import { FoldersIcon } from "lucide-react";
+import { FoldersIcon, ListPlus } from "lucide-react";
 import React, { ReactNode } from "react";
 
 const SideLink = ({
@@ -29,7 +29,7 @@ const SideLink = ({
                 <span >{icon}</span>
             ) : (
                 <span className="mr-2">
-                    <FoldersIcon className={clsx('size-6', {
+                    <ListPlus className={clsx('size-6 stroke-kado-950 dark:stroke-kado-300', {
                         'text-emerald-500': route().current(url) || isActive
                     })} />
                 </span>

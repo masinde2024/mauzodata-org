@@ -21,14 +21,14 @@ const NavBar = ({ user }: PropsWithChildren<{ user: User}>) => {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
   return (
-      <nav className="text-indigo-50 dark:bg-kado-950 border-b border-gray-100 dark:border-gray-800">
+      <nav className="text-indigo-50 bg-kado-500/10 border-b border-gray-100 dark:border-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between h-12">
+              <div className="flex justify-between h-14">
                   <div className="flex">
                       <div className="shrink-0 flex gap-1 items-center">
                           <Sheet>
                               <SheetTrigger>
-                                <Text className='size-6' />
+                                <Text className='size-6 text-kado-500 dark:text-kado-200' />
                               </SheetTrigger>
                               <SheetContent side={'left'}>
                                   <SheetHeader>

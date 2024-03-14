@@ -6,7 +6,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PageProps } from "@/types";
 import { Head, Link, useForm } from "@inertiajs/react";
-import Checkbox from "@/components/ui/Checkbox";
 import { Switch } from "@/components/ui/switch";
 import {
     Accordion,

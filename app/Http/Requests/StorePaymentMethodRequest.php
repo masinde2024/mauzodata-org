@@ -24,7 +24,7 @@ class StorePaymentMethodRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'number' => ['nullable', 'string', 'max:255'],
-            'isActive' => ['required', 'boolean']
+            'isActive' => ['required', 'boolean'],
         ];
     }
 }

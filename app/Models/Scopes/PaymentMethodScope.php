@@ -13,7 +13,8 @@ class PaymentMethodScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if(auth()->check())
+        if (auth()->check()) {
             $builder->where('branch_id', auth()->user()->branch_id)->where('isActive', true);
+        }
     }
 }

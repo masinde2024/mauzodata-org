@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-
 #[ObservedBy(BranchObserver::class)]
 #[ScopedBy(AccountScope::class)]
 class Branch extends Model
@@ -39,5 +38,4 @@ class Branch extends Model
     {
         return $this->hasMany(Product::class);
     }
-
 }

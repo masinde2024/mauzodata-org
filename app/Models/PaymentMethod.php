@@ -9,8 +9,7 @@ use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[ObservedBy(PaymentMethodObserver::class)]
 #[ScopedBy(PaymentMethodScope::class)]
@@ -21,11 +20,16 @@ class PaymentMethod extends Model
     protected $fillable = ['branch_id', 'name', 'number', 'isActive'];
 
     protected $casts = [
-        'isActive' => 'boolean'
+        'isActive' => 'boolean',
     ];
 
     public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class);
+    }
+
+    public function Orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 }

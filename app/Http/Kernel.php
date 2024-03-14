@@ -67,6 +67,6 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        "remove_comma_from_input" => RemoveCommaFromInput::class,
+        'remove_comma_from_input' => RemoveCommaFromInput::class,
     ];
 }

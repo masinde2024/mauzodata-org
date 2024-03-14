@@ -15,15 +15,15 @@ class RemoveCommaFromInput
      */
     public function handle(Request $request, Closure $next): Response
     {
-            $inputs = $request->all();
+        $inputs = $request->all();
 
-            $cleanedInputs = [];
-            foreach ($inputs as $key => $value) {
-                $cleanedInputs[$key] = is_string($value) ? str_replace(',', '', $value): $value;
-            }
+        $cleanedInputs = [];
+        foreach ($inputs as $key => $value) {
+            $cleanedInputs[$key] = is_string($value) ? str_replace(',', '', $value) : $value;
+        }
 
-            $request->replace($cleanedInputs);
-            
-            return $next($request);
+        $request->replace($cleanedInputs);
+
+        return $next($request);
     }
 }

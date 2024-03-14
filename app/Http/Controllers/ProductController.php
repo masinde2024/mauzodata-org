@@ -15,11 +15,12 @@ class ProductController extends Controller
      */
     public function index(): Response
     {
-        if(request()->get('search') !== null) {
+        if (request()->get('search') !== null) {
             return Inertia::render('Products/Index', [
                 'products' => Product::search(request()->get('search'))->paginate(10),
             ]);
         }
+
         return Inertia::render('Products/Index', [
             'products' => Product::paginate(10),
         ]);
@@ -39,6 +40,7 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         Product::create($request->validated());
+
         return to_route('products.create');
     }
 
