@@ -21,7 +21,7 @@ const OrdersIndex = ({
 }>) => {
     return (
         <CartLayout user={auth.user}>
-            <Head title="Cart" />
+            <Head title="Sale Point" />
             <div className="fixed right-8 bottom-20 shadow-2xl" draggable>
                 <CartDrawer cart={cart} products={products} />
             </div>
