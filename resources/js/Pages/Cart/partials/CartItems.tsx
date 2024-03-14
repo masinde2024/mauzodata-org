@@ -4,9 +4,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import {
     Select,
     SelectContent,
-    SelectGroup,
     SelectItem,
-    SelectLabel,
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
@@ -16,12 +14,10 @@ import { NumericFormat } from "react-number-format";
 import InputLabel from "@/components/ui/InputLabel";
 import InputError from "@/components/ui/InputError";
 import { router, useForm } from "@inertiajs/react";
-import SubmitButton from "@/components/SubmitButton";
 import { Button } from "@/components/ui/button";
 import UpdateCartItem from "./UpdateCartItem";
 import { toast } from "sonner";
-import { Trash, TrashIcon } from "lucide-react";
-import { CartDrawer } from "./CartDrawer";
+import { Trash } from "lucide-react";
 
 const CartItems = ({
     cart,
@@ -55,8 +51,8 @@ const CartItems = ({
                                 </tr>
                             </thead>
                             <tbody className="divide-y text-sm divide-kado-500/20">
-                                {cart.items &&
-                                    cart.items.map((item, index) => {
+                                {cart?.items &&
+                                    cart?.items.map((item, index) => {
                                         subtotal += item.price * item.quantity;
                                         return (
                                             <tr
