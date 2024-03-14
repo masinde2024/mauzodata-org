@@ -55,62 +55,73 @@ const CartItems = ({
                                 </tr>
                             </thead>
                             <tbody className="divide-y text-sm divide-kado-500/20">
-                                {cart.items.map((item, index) => {
-                                    subtotal += item.price * item.quantity;
-                                    return (
-                                        <tr
-                                            key={item.id}
-                                            className="*:py-2 active:bg-kado-600/10"
-                                        >
-                                            <td className="text-left">
-                                                {item.product.name}
-                                            </td>
-                                            <td className="text-right">
-                                                {Intl.NumberFormat().format(
-                                                    item.price
-                                                )}
-                                            </td>
-                                            <td className="text-right flex justify-end">
-                                                <UpdateCartItem
-                                                    item={item}
-                                                    qty={item.quantity}
-                                                />
-                                            </td>
-                                            <td className="text-right">
-                                                {Intl.NumberFormat().format(
-                                                    item.quantity * item.price
-                                                )}
-                                            </td>
-                                            <td className="flex justify-center">
-                                                <Button
-                                                    className="p-1"
-                                                    variant={'destructive'}
-                                                    onClick={() => {
-                                                        router.visit(
-                                                            route(
-                                                                "carts.destroy",
-                                                                { item: item.id }
-                                                            ),
-                                                            {
-                                                                method: "delete",
-                                                                preserveScroll: true,
-                                                                onSuccess: () => {
-                                                                    toast.success("Item removed from cart")
-                                                                },
-                                                                onError: () => {
-                                                                    toast.error("Failed to remove item from cart")
+                                {cart.items &&
+                                    cart.items.map((item, index) => {
+                                        subtotal += item.price * item.quantity;
+                                        return (
+                                            <tr
+                                                key={item.id}
+                                                className="*:py-2 active:bg-kado-600/10"
+                                            >
+                                                <td className="text-left">
+                                                    {item.product.name}
+                                                </td>
+                                                <td className="text-right">
+                                                    {Intl.NumberFormat().format(
+                                                        item.price
+                                                    )}
+                                                </td>
+                                                <td className="text-right flex justify-end">
+                                                    <UpdateCartItem
+                                                        item={item}
+                                                        qty={item.quantity}
+                                                    />
+                                                </td>
+                                                <td className="text-right">
+                                                    {Intl.NumberFormat().format(
+                                                        item.quantity *
+                                                            item.price
+                                                    )}
+                                                </td>
+                                                <td className="flex justify-center">
+                                                    <Button
+                                                        className="p-1"
+                                                        variant={"destructive"}
+                                                        onClick={() => {
+                                                            router.visit(
+                                                                route(
+                                                                    "carts.destroy",
+                                                                    {
+                                                                        item: item.id,
+                                                                    }
+                                                                ),
+                                                                {
+                                                                    method: "delete",
+                                                                    preserveScroll:
+                                                                        true,
+                                                                    onSuccess:
+                                                                        () => {
+                                                                            toast.success(
+                                                                                "Item removed from cart"
+                                                                            );
+                                                                        },
+                                                                    onError:
+                                                                        () => {
+                                                                            toast.error(
+                                                                                "Failed to remove item from cart"
+                                                                            );
+                                                                        },
                                                                 }
-                                                            }
-                                                        );
-                                                    }}
-                                                    size={'icon'}
-                                                >
-                                                    <Trash className="size-5" />
-                                                </Button>
-                                            </td>
-                                        </tr>
-                                    );
-                                })}
+                                                            );
+                                                        }}
+                                                        size={"icon"}
+                                                    >
+                                                        <Trash className="size-5" />
+                                                    </Button>
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
                             </tbody>
                         </table>
                         <ScrollBar orientation="horizontal" />
