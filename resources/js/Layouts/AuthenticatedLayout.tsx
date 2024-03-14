@@ -36,7 +36,7 @@ export default function Authenticated({
                                     </div>
                                 </header>
                             )}
-                            <div className="py-6 px-4">{children}</div>
+                            <div className="pt-2 pb-6 px-4">{children}</div>
                         </div>
                     </main>
                 </div>

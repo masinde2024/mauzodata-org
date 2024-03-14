@@ -22,7 +22,7 @@ const OrdersIndex = ({
     return (
         <CartLayout user={auth.user}>
             <Head title="Sale Point" />
-            <div className="fixed right-8 bottom-20 shadow-2xl" draggable>
+            <div className="fixed right-8 bottom-20 shadow-2xl z-10" draggable>
                 <CartDrawer cart={cart} products={products} />
             </div>
 

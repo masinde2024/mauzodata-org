@@ -10,14 +10,14 @@ import clsx from 'clsx';
 export const CartLayout = ({ children, user }: PropsWithChildren<{ user: User}>) => {
   return (
       <Authenticated user={user}>
-          <ScrollArea className="w-full max-w-7xl mx-auto py-2 ">
+          <ScrollArea className="w-full max-w-7xl mx-auto pt-2 pb-4 ">
               <ul className="flex items-center justify-between gap-4 text-center text-kado-950 dark:text-kado-50 whitespace-nowrap *:flex-1">
                   <li>
                       <Link
                           className={clsx(
                               "flex items-center justify-center gap-1 p-3 rounded-2xl bg-kado-100 dark:bg-kado-600/20",
                               {
-                                  "bg-indigo-800/50 dark:bg-indigo-400/20 text-white":
+                                  "bg-violet-800/50 dark:bg-indigo-400/20 text-white":
                                       route().current("carts.index"),
                               }
                           )}

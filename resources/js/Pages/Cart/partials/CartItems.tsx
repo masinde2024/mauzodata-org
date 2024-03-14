@@ -43,10 +43,10 @@ const CartItems = ({
                         <table className="w-full">
                             <thead>
                                 <tr className="border-b *:py-2 border-kado-500/20">
-                                    <th className="text-left">Product</th>
-                                    <th className="text-right">Price</th>
-                                    <th className="text-right">Quantity</th>
-                                    <th className="text-right">Total</th>
+                                    <th className="text-left pr-2">Product</th>
+                                    <th className="text-right px-2.5 whitespace-nowrap">Price</th>
+                                    <th className="text-right px-2.5 whitespace-nowrap">Quantity</th>
+                                    <th className="text-right px-2.5 whitespace-nowrap">Total</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -59,27 +59,27 @@ const CartItems = ({
                                                 key={item.id}
                                                 className="*:py-2 active:bg-kado-600/10"
                                             >
-                                                <td className="text-left">
-                                                    {item.product.name}
+                                                <td className="text-left pr-2">
+                                                    {`${item.product.name}/${item.product.unit}`}
                                                 </td>
-                                                <td className="text-right">
+                                                <td className="text-right px-2.5 whitespace-nowrap">
                                                     {Intl.NumberFormat().format(
                                                         item.price
                                                     )}
                                                 </td>
-                                                <td className="text-right flex justify-end">
+                                                <td className="text-right px-2.5 whitespace-nowrap flex justify-end">
                                                     <UpdateCartItem
                                                         item={item}
                                                         qty={item.quantity}
                                                     />
                                                 </td>
-                                                <td className="text-right">
+                                                <td className="text-right px-2.5 whitespace-nowrap">
                                                     {Intl.NumberFormat().format(
                                                         item.quantity *
                                                             item.price
                                                     )}
                                                 </td>
-                                                <td className="flex justify-center">
+                                                <td className="flex justify-center px-2">
                                                     <Button
                                                         className="p-1"
                                                         variant={"destructive"}
