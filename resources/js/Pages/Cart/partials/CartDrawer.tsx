@@ -49,9 +49,8 @@ export function CartDrawer({
         <Drawer open={open} onOpenChange={setOpen}>
             <DrawerTrigger asChild>
                 <Button
-                    className="bg-indigo-800/60 dark:bg-indigo-800/60 text-white animate-bounce transition-all duration-700 hover:animate-none"
+                    className="animate-bounce transition-all duration-700 hover:animate-none"
                     size={"icon"}
-                    variant="outline"
                 >
                     <ShoppingCartIcon size={25} />
                 </Button>

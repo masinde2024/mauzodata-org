@@ -17,7 +17,7 @@ export const CartLayout = ({ children, user }: PropsWithChildren<{ user: User}>)
                           className={clsx(
                               "flex items-center justify-center gap-1 p-3 rounded-2xl bg-kado-100 dark:bg-kado-600/20",
                               {
-                                  "bg-violet-800/50 dark:bg-indigo-400/20 text-white":
+                                  "bg-kado-900 dark:bg-kado-200 text-white":
                                       route().current("carts.index"),
                               }
                           )}
@@ -35,7 +35,7 @@ export const CartLayout = ({ children, user }: PropsWithChildren<{ user: User}>)
                           className={clsx(
                               "flex items-center justify-center gap-1 p-3 rounded-2xl bg-kado-100 dark:bg-kado-600/20",
                               {
-                                  "bg-indigo-800/50 dark:bg-indigo-400/20 text-white":
+                                  "bg-kado-900 dark:bg-kado-200 text-white":
                                       route().current("carts.destroy"),
                               }
                           )}
@@ -53,7 +53,7 @@ export const CartLayout = ({ children, user }: PropsWithChildren<{ user: User}>)
                           className={clsx(
                               "flex items-center justify-center gap-1 p-3 rounded-2xl bg-kado-100 dark:bg-kado-600/20",
                               {
-                                  "bg-indigo-800/50 dark:bg-indigo-400/20 text-white":
+                                  "bg-kado-900 dark:bg-kado-200 text-white":
                                       route().current("carts.update"),
                               }
                           )}
@@ -71,7 +71,7 @@ export const CartLayout = ({ children, user }: PropsWithChildren<{ user: User}>)
                           className={clsx(
                               "flex items-center justify-center gap-1 p-3 rounded-2xl bg-kado-100 dark:bg-kado-600/20",
                               {
-                                  "bg-indigo-800/50 dark:bg-indigo-400/20 text-white":
+                                  "bg-kado-900 dark:bg-kado-200 text-white":
                                       route().current("carts.destroy"),
                               }
                           )}
